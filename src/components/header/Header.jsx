@@ -53,6 +53,7 @@ export default function Header() {
   return (
     <div className="card">
       <Menubar model={items} />
+      <h1>New Header</h1>
     </div>
   );
 }
