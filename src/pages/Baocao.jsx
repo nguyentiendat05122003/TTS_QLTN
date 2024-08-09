@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
 
 const Baocao = () => {
   return (
-    <div>Baocao</div>
-  )
-}
+    <div>
+      <div>Baocao</div>
+      <h1>Datnguyen</h1>
+    </div>
+  );
+};
 
-export default Baocao
+export default Baocao;
