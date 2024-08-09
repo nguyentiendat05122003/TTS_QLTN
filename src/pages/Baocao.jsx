@@ -5,6 +5,7 @@ const Baocao = () => {
     <div>
       <div>Baocao</div>
       <h1>Datnguyen</h1>
+      <h1>Nguyen tien anh</h1>
     </div>
   );
 };
