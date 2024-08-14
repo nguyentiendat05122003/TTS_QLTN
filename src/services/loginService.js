@@ -1,4 +1,4 @@
-import axiosClient from './serviecBase';
+import axiosClient from './serviceBase';
 const loginService = {
 login:async (username, password) => {
     try {
@@ -7,6 +7,7 @@ login:async (username, password) => {
 			Password: password,
 		});
 		if (response.data) {
+			console.log(response.data)
 			sessionStorage.setItem('token', response.data.newToken);
 			sessionStorage.setItem('username',response.data.userInfo);
 			sessionStorage.setItem('UserId',response.data.userId);
