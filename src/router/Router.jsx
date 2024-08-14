@@ -5,20 +5,39 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
 import DefaultLayout from "../layouts/DefaultLayout";
+import {KhachHang } from "../pages/CaiDat/KhachHang/KhachHang";
+
+const routes = [
+  {
+    path: '/',
+    element: <Home />
+  },
+  {
+    path: '/khachhang',
+    element: <KhachHang />
+  },
+]
+
 
 const Router = () => {
   return (
     <ErrorBoundaryRoutes>
-      <Route
-        index={true}
-        element={
-          <PrivateRouter>
-            <DefaultLayout>
-              <Home />
-            </DefaultLayout>
-          </PrivateRouter>
-        }
-      />
+      {
+        routes.map((r, i) =>
+          <Route
+            path={r.path}
+            key={i}
+            index={true}
+            element={
+              <PrivateRouter>
+                <DefaultLayout>
+                  {r.element}
+                </DefaultLayout>
+              </PrivateRouter>
+            }
+          />
+        )
+      }
       <Route path="login" element={<Login />} />
       <Route path="*" element={<NotFound />} />
     </ErrorBoundaryRoutes>
