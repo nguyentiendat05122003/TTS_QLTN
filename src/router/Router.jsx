@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
 import DefaultLayout from "../layouts/DefaultLayout";
 import { DanhSachYCTN } from "../pages/YeuCauThiNghiem/DanhSachYCTN";
+import { GiaoNhiemVu } from "../pages/YeuCauThiNghiem/GiaoNhiemVu";
 
 const Router = () => {
   return (
@@ -25,11 +26,20 @@ const Router = () => {
       <Route
         path="/YeuCauThiNghiem"
         element={
-          <PrivateRouter>
+          
             <DefaultLayout>
               <DanhSachYCTN />
             </DefaultLayout>
-          </PrivateRouter>
+        
+        }
+      />
+      <Route
+        path="/GiaoNhiemVu"
+        element={
+            <DefaultLayout>
+              <GiaoNhiemVu />
+            </DefaultLayout>
+        
         }
       />
       <Route path="*" element={<NotFound />} />
