@@ -5,7 +5,10 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
 import DefaultLayout from "../layouts/DefaultLayout";
-import {KhachHang } from "../pages/CaiDat/KhachHang/KhachHang";
+import { KhachHang } from "../pages/CaiDat/KhachHang";
+
+import { LoaiBienBan } from "../pages/CaiDat/LoaiBienBan";
+import LoaiThietBi from "../pages/CaiDat/LoaiThietBi";
 
 const routes = [
   {
@@ -15,6 +18,14 @@ const routes = [
   {
     path: '/khachhang',
     element: <KhachHang />
+  },
+  {
+    path: '/loaithietbi',
+    element: <LoaiThietBi />
+  },
+  {
+    path: '/loaibienban',
+    element: <LoaiBienBan />
   },
 ]
 
