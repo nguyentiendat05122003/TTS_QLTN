@@ -7,6 +7,7 @@ import NotFound from "../pages/NotFound";
 import DefaultLayout from "../layouts/DefaultLayout";
 import { DanhSachYCTN } from "../pages/YeuCauThiNghiem/DanhSachYCTN";
 import { GiaoNhiemVu } from "../pages/YeuCauThiNghiem/GiaoNhiemVu";
+import { NhapKhoiLuong } from "../pages/YeuCauThiNghiem/NhapKhoiLuong";
 
 const Router = () => {
   return (
@@ -38,6 +39,15 @@ const Router = () => {
         element={
             <DefaultLayout>
               <GiaoNhiemVu />
+            </DefaultLayout>
+        
+        }
+      />
+      <Route
+        path="/NhapKhoiLuongThucHien"
+        element={
+            <DefaultLayout>
+              <NhapKhoiLuong />
             </DefaultLayout>
         
         }
