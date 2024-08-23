@@ -6,7 +6,8 @@ import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
 import DefaultLayout from "../layouts/DefaultLayout";
 import { KhachHang } from "../pages/CaiDat/KhachHang";
-
+import { DanhSachYCTN } from "../pages/YeuCauThiNghiem/DanhSachYCTN";
+import { GiaoNhiemVu } from "../pages/YeuCauThiNghiem/GiaoNhiemVu";
 import { LoaiBienBan } from "../pages/CaiDat/LoaiBienBan";
 import LoaiThietBi from "../pages/CaiDat/LoaiThietBi";
 
@@ -26,6 +27,14 @@ const routes = [
   {
     path: '/loaibienban',
     element: <LoaiBienBan />
+  },
+  {
+    path: '//YeuCauThiNghiem',
+    element: <DanhSachYCTN />
+  },
+  {
+    path: '/GiaoNhiemVu',
+    element: <GiaoNhiemVu />
   },
 ]
 
@@ -49,7 +58,7 @@ const Router = () => {
           />
         )
       }
-      <Route path="login" element={<Login />} />
+
       <Route path="*" element={<NotFound />} />
     </ErrorBoundaryRoutes>
   );
