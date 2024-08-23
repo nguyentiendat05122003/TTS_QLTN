@@ -60,6 +60,7 @@ const Router = () => {
       }
 
       <Route path="*" element={<NotFound />} />
+      <Route path="login" element={<Login />} />
     </ErrorBoundaryRoutes>
   );
 };
