@@ -27,28 +27,32 @@ const Router = () => {
       <Route
         path="/YeuCauThiNghiem"
         element={
-          
+          <PrivateRouter>
             <DefaultLayout>
               <DanhSachYCTN />
             </DefaultLayout>
-        
+            </PrivateRouter>
         }
       />
       <Route
         path="/GiaoNhiemVu"
         element={
-            <DefaultLayout>
+          <PrivateRouter>
+             <DefaultLayout>
               <GiaoNhiemVu />
             </DefaultLayout>
+          </PrivateRouter>
         
         }
       />
       <Route
         path="/NhapKhoiLuongThucHien"
         element={
-            <DefaultLayout>
+          <PrivateRouter>
+               <DefaultLayout>
               <NhapKhoiLuong />
             </DefaultLayout>
+          </PrivateRouter>
         
         }
       />
