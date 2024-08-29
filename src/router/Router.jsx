@@ -10,26 +10,43 @@ import { DanhSachYCTN } from "../pages/YeuCauThiNghiem/DanhSachYCTN";
 import { GiaoNhiemVu } from "../pages/YeuCauThiNghiem/GiaoNhiemVu";
 import { LoaiBienBan } from "../pages/CaiDat/LoaiBienBan";
 import LoaiThietBi from "../pages/CaiDat/LoaiThietBi";
+import { TruongDuLieu } from "../pages/CaiDat/TruongDuLieu";
+import NhomThanhVien from "../pages/CaiDat/NhomThanhVien";
+import { ThanhVien } from "../pages/CaiDat/ThanhVien";
 
 const routes = [
   {
     path: '/',
     element: <Home />
   },
+  //route CaiDat
   {
-    path: '/khachhang',
+    path: '/KhachHang',
     element: <KhachHang />
   },
   {
-    path: '/loaithietbi',
+    path: '/LoaiThietBi',
     element: <LoaiThietBi />
   },
   {
-    path: '/loaibienban',
+    path: '/LoaiBienBan',
     element: <LoaiBienBan />
   },
   {
-    path: '//YeuCauThiNghiem',
+    path: '/NhomThanhVien',
+    element: <NhomThanhVien />
+  },
+  {
+    path: '/ThanhVien',
+    element: <ThanhVien />
+  },
+  {
+    path: '/TruongDuLieu',
+    element: <TruongDuLieu />
+  },
+  /////////////////////////////
+  {
+    path: '/YeuCauThiNghiem',
     element: <DanhSachYCTN />
   },
   {

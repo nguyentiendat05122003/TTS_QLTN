@@ -8,11 +8,51 @@ import { Toast } from 'primereact/toast';
 import { ConfirmDialog, confirmDialog } from 'primereact/confirmdialog';
 import { Dialog } from 'primereact/dialog';
 import { showErrorToast, showSuccessToast } from '../../utils/toastUtils';
-import khachhangService from '../../services/khachhangService';
+import ThanhVienService from '../../services/thanhvienService';
 import { InputNumber } from 'primereact/inputnumber';
 import { hasNullOrUndefined, validateEmail } from '../../services/validation';
 
-const khachHangs = [{ ten_kh: 'Nguyễn Văn A', ma_kh: 'KH001', ma_so_thue: '123456789', so_dien_thoai: '0912345678', email: 'nguyenvana@example.com', dia_chi: '123 Đường ABC, Quận 1, TP. HCM', ghi_chu: 'Khách hàng lâu năm' }, { ten_kh: 'Trần Thị B', ma_kh: 'KH002', ma_so_thue: '987654321', so_dien_thoai: '0987654321', email: 'tranthib@example.com', dia_chi: '456 Đường XYZ, Quận 2, TP. HCM', ghi_chu: 'Thích khuyến mãi' }, { ten_kh: 'Lê Văn C', ma_kh: 'KH003', ma_so_thue: '1122334455', so_dien_thoai: '0909090909', email: 'levanc@example.com', dia_chi: '789 Đường DEF, Quận 3, TP. HCM', ghi_chu: 'Khách hàng mới' }, { ten_kh: 'Phạm Thị D', ma_kh: 'KH004', ma_so_thue: '5566778899', so_dien_thoai: '0979797979', email: 'phamthid@example.com', dia_chi: '321 Đường GHI, Quận 4, TP. HCM', ghi_chu: 'Yêu cầu thanh toán nhanh' }, { ten_kh: 'Hoàng Văn E', ma_kh: 'KH005', ma_so_thue: '4433221100', so_dien_thoai: '0969696969', email: 'hoangvane@example.com', dia_chi: '654 Đường JKL, Quận 5, TP. HCM', ghi_chu: 'Khách hàng VIP' }, { ten_kh: 'Trần Thị B', ma_kh: 'KH002', ma_so_thue: '987654321', so_dien_thoai: '0987654321', email: 'tranthib@example.com', dia_chi: '456 Đường XYZ, Quận 2, TP. HCM', ghi_chu: 'Thích khuyến mãi' }, { ten_kh: 'Lê Văn C', ma_kh: 'KH003', ma_so_thue: '1122334455', so_dien_thoai: '0909090909', email: 'levanc@example.com', dia_chi: '789 Đường DEF, Quận 3, TP. HCM', ghi_chu: 'Khách hàng mới' }, { ten_kh: 'Phạm Thị D', ma_kh: 'KH004', ma_so_thue: '5566778899', so_dien_thoai: '0979797979', email: 'phamthid@example.com', dia_chi: '321 Đường GHI, Quận 4, TP. HCM', ghi_chu: 'Yêu cầu thanh toán nhanh' }, { ten_kh: 'Hoàng Văn E', ma_kh: 'KH005', ma_so_thue: '4433221100', so_dien_thoai: '0969696969', email: 'hoangvane@example.com', dia_chi: '654 Đường JKL, Quận 5, TP. HCM', ghi_chu: 'Khách hàng VIP' }, { ten_kh: 'Trần Thị B', ma_kh: 'KH002', ma_so_thue: '987654321', so_dien_thoai: '0987654321', email: 'tranthib@example.com', dia_chi: '456 Đường XYZ, Quận 2, TP. HCM', ghi_chu: 'Thích khuyến mãi' }, { ten_kh: 'Lê Văn C', ma_kh: 'KH003', ma_so_thue: '1122334455', so_dien_thoai: '0909090909', email: 'levanc@example.com', dia_chi: '789 Đường DEF, Quận 3, TP. HCM', ghi_chu: 'Khách hàng mới' }, { ten_kh: 'Phạm Thị D', ma_kh: 'KH004', ma_so_thue: '5566778899', so_dien_thoai: '0979797979', email: 'phamthid@example.com', dia_chi: '321 Đường GHI, Quận 4, TP. HCM', ghi_chu: 'Yêu cầu thanh toán nhanh' }, { ten_kh: 'Hoàng Văn E', ma_kh: 'KH005', ma_so_thue: '4433221100', so_dien_thoai: '0969696969', email: 'hoangvane@example.com', dia_chi: '654 Đường JKL, Quận 5, TP. HCM', ghi_chu: 'Khách hàng VIP' }, { ten_kh: 'Trần Thị B', ma_kh: 'KH002', ma_so_thue: '987654321', so_dien_thoai: '0987654321', email: 'tranthib@example.com', dia_chi: '456 Đường XYZ, Quận 2, TP. HCM', ghi_chu: 'Thích khuyến mãi' }, { ten_kh: 'Lê Văn C', ma_kh: 'KH003', ma_so_thue: '1122334455', so_dien_thoai: '0909090909', email: 'levanc@example.com', dia_chi: '789 Đường DEF, Quận 3, TP. HCM', ghi_chu: 'Khách hàng mới' }, { ten_kh: 'Phạm Thị D', ma_kh: 'KH004', ma_so_thue: '5566778899', so_dien_thoai: '0979797979', email: 'phamthid@example.com', dia_chi: '321 Đường GHI, Quận 4, TP. HCM', ghi_chu: 'Yêu cầu thanh toán nhanh' }, { ten_kh: 'Hoàng Văn E', ma_kh: 'KH005', ma_so_thue: '4433221100', so_dien_thoai: '0969696969', email: 'hoangvane@example.com', dia_chi: '654 Đường JKL, Quận 5, TP. HCM', ghi_chu: 'Khách hàng VIP' },];
+
+const ThanhViens = [
+    {
+        ma_nguoi_dung: 'bkadmin',
+        ten_thanh_vien: 'Admin BKis',
+        don_vi: 'CÔNG TY ĐIỆN LỰC HƯNG YÊN',
+        nhom_quyen: 'Nhóm quyền admin',
+        // các thuộc tính khác nếu cần
+    },
+    {
+        ma_nguoi_dung: 'pchy_vuidt',
+        ten_thanh_vien: 'Đặng Thị Vui',
+        don_vi: 'CÔNG TY ĐIỆN LỰC HƯNG YÊN',
+        nhom_quyen: 'Thực hiện hợp đồng PCHY',
+        // các thuộc tính khác nếu cần
+    },
+    {
+        ma_nguoi_dung: 'pchy_lanntn',
+        ten_thanh_vien: 'Admin BKis',
+        don_vi: 'CÔNG TY ĐIỆN LỰC HƯNG YÊN',
+        nhom_quyen: 'Thực hiện hợp đồng PCHY',
+        // các thuộc tính khác nếu cần
+    },
+    {
+        ma_nguoi_dung: 'pchy_khoapt',
+        ten_thanh_vien: 'Phạm Thành Khoa',
+        don_vi: 'CÔNG TY ĐIỆN LỰC HƯNG YÊN',
+        nhom_quyen: 'Nhóm quyền Tổ kỹ thuật PCHY',
+        // các thuộc tính khác nếu cần
+    },
+    {
+        ma_nguoi_dung: 'pchy_diepth',
+        ten_thanh_vien: 'Trần Hữu ĐiệpBKis',
+        don_vi: 'CÔNG TY ĐIỆN LỰC HƯNG YÊN',
+        nhom_quyen: 'Thực hiện quy trình thí nghiệm PCHY',
+        // các thuộc tính khác nếu cần
+    },
+
+    // Thêm các đối tượng khác tương tự
+];
+
 const initialFormState = {
     id: 0,
     ma_kh: "",
@@ -25,8 +65,8 @@ const initialFormState = {
 };
 
 
-export const KhachHang = () => {
-    const [khachHang, setKhachHang] = useState([]);
+export const ThanhVien = () => {
+    const [ThanhVien, setThanhVien] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [isAdd, setIsAdd] = useState(true);
     const [visible, setVisible] = useState(false);
@@ -39,9 +79,9 @@ export const KhachHang = () => {
     }, []);
 
     const loadData = async () => {
-        // let res = await khachhangService.getAllKhachhang()
-        // res && setKhachHang(res)
-        setKhachHang(khachHangs)
+        // let res = await ThanhVienService.getAllThanhVien()
+        // res && setThanhVien(res)
+        setThanhVien(ThanhViens)
     }
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -54,8 +94,8 @@ export const KhachHang = () => {
 
             try {
                 const res = isAdd
-                    ? await khachhangService.createKhachhang({ ...formData, nguoi_tao: "huy" })
-                    : await khachhangService.updateKhachhang({ ...formData, nguoi_sua: "huy" });
+                    ? await ThanhVienService.createThanhVien({ ...formData, nguoi_tao: "huy" })
+                    : await ThanhVienService.updateThanhVien({ ...formData, nguoi_sua: "huy" });
 
                 res && showSuccessToast(toast, res.message)
                 res && loadData();
@@ -86,7 +126,7 @@ export const KhachHang = () => {
             accept: async () => {
                 try {
 
-                    let res = await khachhangService.deleteKhachhang(kh.id)
+                    let res = await ThanhVienService.deleteThanhVien(kh.id)
                     res && showSuccessToast(toast, "Xóa thành công khách hàng ID= " + kh.id)
                     res && loadData()
                 }
@@ -106,7 +146,7 @@ export const KhachHang = () => {
 
             <div className='border-round-3xl bg-white p-4'>
                 <div className='flex justify-content-between wrap min-w-full pb-3 mb-5 border-bottom-2 border-200'>
-                    <span className='font-bold text-sm text-xl'>Quản lý khách hàng</span>
+                    <span className='font-bold text-sm text-xl'>Quản lý thành viên</span>
                     <Button icon="pi pi-plus-circle" className='border-round-2xl' label='Thêm mới' onClick={() => {
                         setIsAdd(true);
                         setFormData(initialFormState);
@@ -147,15 +187,12 @@ export const KhachHang = () => {
                 </div>
 
                 <div className="card">
-                    <DataTable value={khachHang} showGridlines paginator rows={10} rowsPerPageOptions={[5, 10, 25, 50, 100]}>
+                    <DataTable value={ThanhVien} showGridlines paginator rows={10} rowsPerPageOptions={[5, 10, 25, 50, 100]}>
                         <Column header="STT" body={(_, { rowIndex }) => rowIndex + 1} className='w-auto' />
-                        <Column field="ten_kh" header="Tên khách hàng" className='w-auto' />
-                        <Column field="ma_kh" header="Mã khách hàng" className='w-auto' />
-                        <Column field="ma_so_thue" header="Mã số thuế" className='w-auto' />
-                        <Column field="so_dt" header="Số điện thoại" className='w-auto' />
-                        <Column field="email" header="Email" className='w-auto' />
-                        <Column field="dia_chi" header="Địa chỉ" className='w-auto' />
-                        <Column field="ghi_chu" header="Ghi chú" className='w-auto' />
+                        <Column field="ma_nguoi_dung" header="Mã User" className='w-auto' />
+                        <Column field="ma_nguoi_dung" header="Tên thành viên" className='w-auto' />
+                        <Column field="don_vi" header="Đơn vị" className='w-auto' />
+                        <Column field="nhom_quyen" header="Nhóm quyền" className='w-auto' />
                         <Column header="Thao tác" body={(rowData) => (
                             <>
                                 <Button icon="pi pi-pencil" rounded text outlined className="p-button-rounded  mr-2 mb-1 " tooltip='Sửa' style={{ fontSize: 8 }} onClick={() => onEdit(rowData)} />
