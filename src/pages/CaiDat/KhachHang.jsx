@@ -39,9 +39,8 @@ export const KhachHang = () => {
     }, []);
 
     const loadData = async () => {
-        // let res = await khachhangService.getAllKhachhang()
-        // res && setKhachHang(res)
-        setKhachHang(khachHangs)
+        let res = await khachhangService.getAllKhachhang()
+        res && setKhachHang(res)
     }
     const handleInputChange = (e) => {
         const { name, value } = e.target;

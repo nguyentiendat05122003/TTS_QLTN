@@ -137,7 +137,22 @@ export const LoaiBienBan = () => {
                 </div>
 
                 <div className="flex flex-column sm:flex-row justify-content-between mb-3 w-full">
-
+                    <span className="flex flex-column sm:flex-row w-full sm:w-15rem mb-2 sm:mb-0">
+                        <Button
+                            style={{ backgroundColor: "#008400" }}
+                            size="small"
+                            icon="pi pi-file-import"
+                            label="Nhập vào"
+                            className="w-full sm:w-auto ml-0 sm:ml-1 mb-2 sm:mb-0 border-round-lg"
+                        />
+                        <Button
+                            style={{ backgroundColor: "#6366F1" }}
+                            size="small"
+                            icon="pi pi-file-export"
+                            label="Xuất ra"
+                            className="w-full sm:w-auto ml-0 sm:ml-1 border-round-lg"
+                        />
+                    </span>
                     <span className="flex flex-column sm:flex-row w-full sm:w-19rem ml-auto">
                         <InputText
                             className="w-full sm:w-18rem border-round-lg"

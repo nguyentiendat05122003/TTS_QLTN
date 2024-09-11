@@ -2,7 +2,7 @@ import { axiosClient } from './serviceBase';
 const loginService = {
 	login: async (username, password) => {
 		try {
-			const response = await axiosClient.post('Login', {
+			const response = await axiosClient.post('https://localhost:44360/api/Login', {
 				Username: username,
 				Password: password,
 			});

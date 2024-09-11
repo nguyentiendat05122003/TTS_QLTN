@@ -1,3 +1,4 @@
+
 import { Route } from 'react-router-dom';
 import { ErrorBoundaryRoutes } from '../components/base/error/ErrorBoundaryRoutes';
 import PrivateRouter from './PrivateRouter';
@@ -85,6 +86,4 @@ const Router = () => {
             <Route path="login" element={<Login />} />
         </ErrorBoundaryRoutes>
     );
-};
-
-export default Router;
+  }

@@ -1,14 +1,16 @@
+import { Button } from "primereact/button";
+import { DataTable } from "primereact/datatable";
 import { InputText } from "primereact/inputtext";
+import { Column } from "primereact/column";
 
 import React from "react";
-import { Button } from "primereact/button";
 
-export const GiaoNhiemVu = () => {
+export const NhapKhoiLuong = () => {
   return (
-    <div className="w-full min-h-screen p-shadow-2">
-     
+    <div className="w-full min-h-screen surface-200 p-shadow-2">
+      <div className="p-4 mx-2">
         <div className="main-top flex align-items-center justify-content-between">
-          <h2 className="text-xl font-medium">Giao nhiệm vụ</h2>
+          <h2 className="text-xl font-medium">Yêu cầu thí nghiệm</h2>
           <div className="breadcrumb text-sm">
             Quản lý Yêu cầu thí nghiệm / Giao nhiệm vụ
           </div>
@@ -16,9 +18,8 @@ export const GiaoNhiemVu = () => {
 
         <div className="bg-white border-round p-2 overflow-hidden">
           <h3 className="text-base text-700 font-medium m-4">
-            Thông tin của yêu cầu thí nghiệm
+            Nhập khối lượng thực hiện
           </h3>
-
           <div className="border-bottom-1 border-gray-200 mx-1 my-2 text-center"></div>
 
           <div className="info px-4 flex flex-column gap-2">
@@ -28,6 +29,11 @@ export const GiaoNhiemVu = () => {
               </label>
               <InputText id="maYCTN" className="w-full" />
             </div>
+
+            <h3 className="text-base text-700 font-medium m-2">
+              Chi tiết Yêu cầu thí nghiệm
+            </h3>
+            <div className="border-bottom-1 border-gray-200 mx-1 my-1 text-center"></div>
 
             <div className="field">
               <label className="block text-700 mb-2">
@@ -53,46 +59,42 @@ export const GiaoNhiemVu = () => {
           </div>
 
           <h3 className="text-base text-blue-600 font-medium m-4">
-            Thông Tin Giao Nhiệm Vụ
+            Danh sách thiết bị
           </h3>
           <div className="border-bottom-1 border-gray-200 mx-1 my-2 text-center"></div>
 
-          <div className="info px-4 flex flex-column gap-2">
-            <h3 className="text-base text-600 font-medium">Giao Nhiệm Vụ</h3>
-            <div className="field flex gap-4">
-              <div className="w-6">
-                <label className="block text-700 mb-2">
-                  File Quyết Định <small className="text-red-600">*</small>
-                </label>
-                <InputText type="file" className="w-full" />
-              </div>
-              <div className="w-6">
-                <label className="block text-700 mb-2">
-                  Người giao nhiệm vụ <small className="text-red-600">*</small>
-                </label>
-                <InputText className="w-full" />
-              </div>
-            </div>
-            <div className="field flex gap-4">
-              <div className="w-6">
-                <label className="block text-700 mb-2">
-                  Ngày giao nhiệm vụ <small className="text-red-600">*</small>
-                </label>
-                <InputText className="w-full" />
-              </div>
-              <div className="w-6">
-                <label className="block text-700 mb-2">
-                  Đơn vị thực hiện <small className="text-red-600">*</small>
-                </label>
-                <InputText className="w-full" />
-              </div>
-            </div>
-
-            <div className="text-right mt-2 mb-4">
-              <Button label="Bước tiếp theo: Nhập khối lượng thực hiện" />
-            </div>
+          <div className="flex justify-content-between align-items-center m-3">
+              <Button label="Thêm mới" className="bg-green-500 border-none"/>
+              <Button label="Nhập Excel" className="bg-green-500 border-none" />
           </div>
+          <DataTable
+            value={[]}
+            className="m-3"
+          >
+            <Column
+                field="donvi"
+                header="Tên thiết bị"
+                style={{ maxWidth: "6rem" }}
+              ></Column>
+            <Column
+                field="donvi"
+                header="Loại thiết bị"
+                style={{ maxWidth: "6rem" }}
+              ></Column>
+            <Column
+                field="donvi"
+                header="Mã loại thiết bị"
+                style={{ maxWidth: "6rem" }}
+              ></Column>
+            <Column
+                field="donvi"
+                header="Số lượng"
+                style={{ maxWidth: "6rem" }}
+              ></Column>
+          </DataTable>
+          
         </div>
       </div>
+    </div>
   );
 };
