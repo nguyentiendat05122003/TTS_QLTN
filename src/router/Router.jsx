@@ -87,3 +87,5 @@ const Router = () => {
         </ErrorBoundaryRoutes>
     );
   }
+
+  export default Router;
