@@ -5,59 +5,69 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
 import DefaultLayout from "../layouts/DefaultLayout";
+import { KhachHang } from "../pages/CaiDat/KhachHang";
 import { DanhSachYCTN } from "../pages/YeuCauThiNghiem/DanhSachYCTN";
 import { GiaoNhiemVu } from "../pages/YeuCauThiNghiem/GiaoNhiemVu";
-import { NhapKhoiLuong } from "../pages/YeuCauThiNghiem/NhapKhoiLuong";
+import { LoaiBienBan } from "../pages/CaiDat/LoaiBienBan";
+import LoaiThietBi from "../pages/CaiDat/LoaiThietBi";
+import { SoLuongChuKy } from "../pages/BaoCao/SoLuongChuKy";
+import { ThemYeuCauThiNghiem } from "../pages/YeuCauThiNghiem/ThemYeuCauThiNghiem";
+
+const routes = [
+  {
+    path: '/',
+    element: <Home />
+  },
+  {
+    path: '/khachhang',
+    element: <KhachHang />
+  },
+  {
+    path: '/loaithietbi',
+    element: <LoaiThietBi />
+  },
+  {
+    path: '/loaibienban',
+    element: <LoaiBienBan />
+  },
+  {
+    path: '/YeuCauThiNghiem',
+    element: <DanhSachYCTN />
+  },
+  {
+    path: '/YeuCauThiNghiem/Add',
+    element: <ThemYeuCauThiNghiem />
+  },
+  {
+    path: '/GiaoNhiemVu',
+    element: <GiaoNhiemVu />
+  },
+  {
+    path: '/SoLuongChuKy',
+    element: <SoLuongChuKy />
+  },
+]
+
 
 const Router = () => {
   return (
-    <ErrorBoundaryRoutes>
-      <Route
-        path="/"
-        index={true}
-        element={
-          <PrivateRouter>
-            <DefaultLayout>
-              <Home />
-            </DefaultLayout>
-          </PrivateRouter>
-        }
-      />
-      <Route path="login" element={<Login />} />
-      <Route
-        path="/YeuCauThiNghiem"
-        element={
-          <PrivateRouter>
-            <DefaultLayout>
-              <DanhSachYCTN />
-            </DefaultLayout>
-            </PrivateRouter>
-        }
-      />
-      <Route
-        path="/GiaoNhiemVu"
-        element={
-          <PrivateRouter>
-             <DefaultLayout>
-              <GiaoNhiemVu />
-            </DefaultLayout>
-          </PrivateRouter>
-        
-        }
-      />
-      <Route
-        path="/NhapKhoiLuongThucHien"
-        element={
-          <PrivateRouter>
-               <DefaultLayout>
-              <NhapKhoiLuong />
-            </DefaultLayout>
-          </PrivateRouter>
-        
-        }
-      />
-      <Route path="*" element={<NotFound />} />
-    </ErrorBoundaryRoutes>
+      <ErrorBoundaryRoutes>
+          {routes.map((r, i) => (
+              <Route
+                  path={r.path}
+                  key={i}
+                  index={true}
+                  element={
+                      // <PrivateRouter>
+                          <DefaultLayout>{r.element}</DefaultLayout>
+                       //</PrivateRouter> 
+                  }
+              />
+          ))}
+
+          <Route path="*" element={<NotFound />} />
+          <Route path="login" element={<Login />} />
+      </ErrorBoundaryRoutes>
   );
 };
 

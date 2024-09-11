@@ -5,8 +5,8 @@ import { Button } from "primereact/button";
 
 export const GiaoNhiemVu = () => {
   return (
-    <div className="w-full min-h-screen surface-200 p-shadow-2">
-      <div className="p-4 mx-2">
+    <div className="w-full min-h-screen p-shadow-2">
+     
         <div className="main-top flex align-items-center justify-content-between">
           <h2 className="text-xl font-medium">Giao nhiệm vụ</h2>
           <div className="breadcrumb text-sm">
@@ -94,6 +94,5 @@ export const GiaoNhiemVu = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };

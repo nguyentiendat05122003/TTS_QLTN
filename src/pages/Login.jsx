@@ -24,12 +24,13 @@ const LoginPage = () => {
       setLogin();
       navigate(redirectRouter);
     } catch (error) {
-      toastTopRight.current.show({
-        severity: "error",
-        summary: "Login Failed",
-        detail: error.response.data.message,
-        life: 3000,
-      });
+      // toastTopRight.current.show({
+      //   severity: "error",
+      //   summary: "Login Failed",
+      //   detail: error,
+      //   life: 3000,
+      // });
+      console.log(error);
     }
   };
 
