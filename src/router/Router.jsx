@@ -12,6 +12,7 @@ import { LoaiBienBan } from "../pages/CaiDat/LoaiBienBan";
 import LoaiThietBi from "../pages/CaiDat/LoaiThietBi";
 import { SoLuongChuKy } from "../pages/BaoCao/SoLuongChuKy";
 import { ThemYeuCauThiNghiem } from "../pages/YeuCauThiNghiem/ThemYeuCauThiNghiem";
+import { NhapKhoiLuong } from "../pages/YeuCauThiNghiem/NhapKhoiLuong";
 
 const routes = [
   {
@@ -41,6 +42,18 @@ const routes = [
   {
     path: '/GiaoNhiemVu',
     element: <GiaoNhiemVu />
+  },
+  {
+    path: '/GiaoNhiemVu',
+    element: <GiaoNhiemVu />
+  },
+  {
+    path: '/GiaoNhiemVu',
+    element: <GiaoNhiemVu />
+  },
+  {
+    path: '/NhapKhoiLuong',
+    element: <NhapKhoiLuong />
   },
   {
     path: '/SoLuongChuKy',
