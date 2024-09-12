@@ -13,6 +13,11 @@
   }
 }
 
+/* styles.css */
+.custom-header .p-panel-header {
+  background-color: #E4F1D2 !important; /* Màu nền bạn muốn */
+  color: #799C11 !important; /* Màu chữ của header */
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

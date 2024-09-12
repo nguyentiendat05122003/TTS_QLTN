@@ -16,6 +16,8 @@ import NhomThanhVien from '../pages/CaiDat/NhomThanhVien';
 import { ThanhVien } from '../pages/CaiDat/ThanhVien';
 import { DanhSachKySo } from '../pages/KySo/DanhSachKySo';
 import { ChiTietKySo } from '../pages/KySo/Chitietkyso';
+import { ChiTietThiNghiem } from '../pages/YeuCauThiNghiem/ChiTietThiNghiem';
+
 
 const routes = [
     {
@@ -48,6 +50,11 @@ const routes = [
         element: <TruongDuLieu />,
     },
     /////////////////////////////
+    {
+        path: '/ChiTietThiNghiem',
+        element: <ChiTietThiNghiem />,
+    },
+    ////////////////////////////
     {
         path: '/YeuCauThiNghiem',
         element: <DanhSachYCTN />,
