@@ -86,6 +86,6 @@ const Router = () => {
             <Route path="login" element={<Login />} />
         </ErrorBoundaryRoutes>
     );
-  }
+}
 
-  export default Router;
+export default Router;
