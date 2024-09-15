@@ -1,59 +1,186 @@
-import React from "react";
-
-import { Menubar } from "primereact/menubar";
+import React from 'react';
+import { Menubar } from 'primereact/menubar';
+import { InputText } from 'primereact/inputtext';
+import { Badge } from 'primereact/badge';
+import { Avatar } from 'primereact/avatar';
+import { Link } from 'react-router-dom';
+// import '../../styles.css';
 
 export default function Header() {
-  const items = [
-    {
-      label: "Home",
-      icon: "pi pi-home",
-    },
-    {
-      label: "Features",
-      icon: "pi pi-star",
-    },
-    {
-      label: "Projects",
-      icon: "pi pi-search",
-      items: [
+    const itemRenderer = (item) => (
+        <Link className="flex align-items-center p-menuitem-link">
+            <span className={item.icon} />
+            <span className="mx-2 ">{item.label}</span>
+            {item.badge && <Badge className="ml-auto" value={item.badge} />}
+            {item.shortcut && (
+                <span className="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">
+                    {item.shortcut}
+                </span>
+            )}
+        </Link>
+    );
+    const items = [
         {
-          label: "Components",
-          icon: "pi pi-bolt",
+            label: 'Home',
+            icon: 'pi blue pi-home',
         },
         {
-          label: "Blocks",
-          icon: "pi pi-server",
+            label: 'Quản lý yêu cầu thí nghiệm',
+            icon: 'pi blue pi-star',
         },
         {
-          label: "UI Kit",
-          icon: "pi pi-pencil",
+            label: 'Thực hiện thí nghiệm',
+            icon: 'pi blue pi-search',
+            items: [
+                {
+                    label: '4. Khảo sát lập phương án thi công',
+                    icon: 'pi blue pi-angle-right',
+                    template: itemRenderer,
+                },
+                {
+                    label: '6. Thực hiện thí nghiệm',
+                    icon: 'pi blue pi-angle-right',
+                    template: itemRenderer,
+                },
+                {
+                    label: '8. Bàn giao kết quả',
+                    icon: 'pi blue pi-angle-right',
+                    template: itemRenderer,
+                },
+                {
+                    separator: true,
+                },
+                {
+                    label: 'Ký số',
+                    icon: 'pi blue pi-palette',
+                    items: [
+                        {
+                            label: 'Apollo',
+                            icon: 'pi blue pi-angle-right',
+                            badge: 2,
+                            template: itemRenderer,
+                        },
+                        {
+                            label: 'Ultima',
+                            icon: 'pi blue pi-angle-right',
+                            badge: 3,
+                            template: itemRenderer,
+                        },
+                    ],
+                },
+            ],
         },
-        {
-          label: "Templates",
-          icon: "pi pi-palette",
-          items: [
-            {
-              label: "Apollo",
-              icon: "pi pi-palette",
-            },
-            {
-              label: "Ultima",
-              icon: "pi pi-palette",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: "Contact",
-      icon: "pi pi-envelope",
-    },
-  ];
 
-  return (
-    <div className="card">
-      <Menubar model={items} />
+        {
+            label: 'Ký số',
+            icon: 'pi blue pi-pen-to-square',
+            // badge: 3,
+            template: itemRenderer,
+        },
+        {
+            label: 'Báo cáo',
+            icon: 'pi blue pi-file',
+            items: [
+                {
+                    label: 'Báo cáo số lượng chữ kí',
+                    icon: 'pi blue pi-angle-right',
+                    template: itemRenderer,
+                },
+                {
+                    label: '6. Thực hiện thí nghiệm',
+                    icon: 'pi blue pi-angle-right',
+                    template: itemRenderer,
+                },
+                {
+                    label: '8. Bàn giao kết quả',
+                    icon: 'pi blue pi-angle-right',
+                    template: itemRenderer,
+                },
+            ],
+        },
+        {
+            label: 'Cài đặt',
+            icon: 'pi blue pi-cog  ',
+            items: [
+                {
+                    label: 'Báo cáo số lượng chữ kí',
+                    icon: 'pi blue pi-angle-right',
+                    template: itemRenderer,
+                },
+                {
+                    label: '6. Thực hiện thí nghiệm',
+                    icon: 'pi blue pi-angle-right',
+                    template: itemRenderer,
+                },
+                {
+                    label: '8. Bàn giao kết quả',
+                    icon: 'pi blue pi-angle-right',
+                    template: itemRenderer,
+                },
+            ],
+        },
+        {
+            label: 'Hướng dẫn sử dụng',
+            icon: 'pi blue pi-book',
+            items: [
+                {
+                    label: 'Báo cáo số lượng chữ kí',
+                    icon: 'pi blue pi-angle-right',
+                    template: itemRenderer,
+                },
+                {
+                    label: '6. Thực hiện thí nghiệm',
+                    icon: 'pi blue pi-angle-right',
+                    template: itemRenderer,
+                },
+                {
+                    label: '8. Bàn giao kết quả',
+                    icon: 'pi blue pi-angle-right',
+                    template: itemRenderer,
+                },
+            ],
+        },
+    ];
 
-    </div>
-  );
+    const start = (
+        <div className="flex align-items-center gap-3 pl-8">
+            <img
+                alt="logo"
+                src="https://thinghiem.pchungyen.vn/Content/images/logo_npsc.png"
+                height="75"
+                className="mr-2"
+            ></img>
+            <div className="p-inputgroup ">
+                <InputText keyfilter="int" className="w-full sm:w-18rem border-round-lg" placeholder="Search..." />
+                <span className="p-inputgroup-addon">
+                    <i className="pi pi-search" />
+                </span>
+            </div>
+        </div>
+    );
+    const end = (
+        <div className="flex align-items-center gap-5 pr-8">
+            <div>
+                <i className="pi blue pi-moon noti"></i>
+            </div>
+            <div>
+                <i className="pi blue pi-expand noti"></i>
+            </div>
+            <div>
+                <i className="pi blue pi-bell noti"></i>
+            </div>
+            <Avatar image="https://primefaces.org/cdn/primereact/images/avatar/amyelsner.png" shape="circle" />
+            <div>
+                <p className="text-primary sm:text-sm"> bkistest01</p>
+                <p className="text-primary sm:text-sm"> CÔNG TY ĐIỆN LỰC HƯNG YÊN</p>
+            </div>
+        </div>
+    );
+
+    return (
+        <div className="card">
+            <Menubar start={start} end={end} />
+            <Menubar model={items} className="pl-8" />
+        </div>
+    );
 }
