@@ -4,7 +4,7 @@ import { InputText } from 'primereact/inputtext';
 import { Badge } from 'primereact/badge';
 import { Avatar } from 'primereact/avatar';
 import { Link } from 'react-router-dom';
-// import '../../styles.css';
+import '../../App.css';
 
 export default function Header() {
     const itemRenderer = (item) => (
