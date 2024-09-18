@@ -5,7 +5,6 @@ import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
 import { InputText } from 'primereact/inputtext';
 import 'primeicons/primeicons.css';
-import { InputTextarea } from 'primereact/inputtextarea';
 import { Dialog } from 'primereact/dialog';
 
 export const DanhSachYCTN = () => {
