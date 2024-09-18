@@ -32,6 +32,9 @@
 .App-link {
   color: #61dafb;
 }
+.p-inputtext.p-component.p-autocomplete-input {
+  width: 100%;
+}
 
 @keyframes App-logo-spin {
   from {

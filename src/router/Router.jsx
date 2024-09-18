@@ -16,7 +16,11 @@ import NhomThanhVien from '../pages/CaiDat/NhomThanhVien';
 import { ThanhVien } from '../pages/CaiDat/ThanhVien';
 import { DanhSachKySo } from '../pages/KySo/DanhSachKySo';
 import { ChiTietKySo } from '../pages/KySo/Chitietkyso';
+
 import { ChiTietThiNghiem } from '../pages/YeuCauThiNghiem/ChiTietThiNghiem';
+import { KhaoSatPhuongAn } from '../pages/ThucHienThiNghiem/KhaoSatPhuongAn';
+
+
 
 
 const routes = [
@@ -62,6 +66,14 @@ const routes = [
     {
         path: '/GiaoNhiemVu',
         element: <GiaoNhiemVu />,
+    },
+    {
+        path: "/khao-sat-phuong-an",
+        element: <KhaoSatPhuongAn />,
+    },
+    {
+        path: "/khao-sat-phuong-an/:id",
+        element: <KhaoSatPhuongAn />,
     },
     {
         path: '/KySo',
