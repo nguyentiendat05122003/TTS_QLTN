@@ -3,45 +3,9 @@ import { AutoComplete } from 'primereact/autocomplete';
 import { InputText } from 'primereact/inputtext';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css'; // Import PrimeFlex CSS
+import { mockData } from './KhaoSatPhuongAn';
 
-export const mockData = [
-    {
-        maYCTN: '123',
-        tenYeuCau: 'Yêu cầu khảo sát ABC',
-        noiDung: 'Khảo sát lập phương án thi công',
-        khachHang: 'Công ty A',
-        loaiTaiSan: 'Tài sản 1',
-        ngayTao: '2023-09-01',
-        ngayKyHopDong: '2023-09-05',
-        giaTriDuToanTruocThue: '100,000,000 VND',
-        giaTriChietGiam: '5,000,000 VND',
-        giaTriSauChietGiam: '95,000,000 VND',
-        thue: '10%',
-        giaTriDuToanSauThue: '104,500,000 VND',
-        fileQuyetDinh: 'Quyet_dinh.pdf',
-        nguoiKhaoSat: 'Nguyễn Văn A',
-        ngayKhaoSat: '2023-09-10',
-    },
-    {
-        maYCTN: '456',
-        tenYeuCau: 'Yêu cầu khảo sát DEF',
-        noiDung: 'Khảo sát lập phương án thi công',
-        khachHang: 'Công ty B',
-        loaiTaiSan: 'Tài sản 2',
-        ngayTao: '2023-09-02',
-        ngayKyHopDong: '2023-09-06',
-        giaTriDuToanTruocThue: '200,000,000 VND',
-        giaTriChietGiam: '10,000,000 VND',
-        giaTriSauChietGiam: '190,000,000 VND',
-        thue: '10%',
-        giaTriDuToanSauThue: '209,000,000 VND',
-        fileQuyetDinh: 'Quyet_dinh_2.pdf',
-        nguoiKhaoSat: 'Nguyễn Văn B',
-        ngayKhaoSat: '2023-09-11',
-    },
-];
-
-export const KhaoSatPhuongAn = () => {
+export const BanGiaoKetQua = () => {
     const [filteredData, setFilteredData] = useState([]);
     const [selectedData, setSelectedData] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
@@ -59,8 +23,8 @@ export const KhaoSatPhuongAn = () => {
     return (
         <div className="w-full min-h-screen p-shadow-2">
             <div className="main-top flex align-items-center justify-content-between">
-                <h2 className="text-xl font-medium">Khảo sát lập phương án thi công</h2>
-                <div className="breadcrumb text-sm">Quản lý Yêu cầu thí nghiệm / Khảo sát lập phương án thi công</div>
+                <h2 className="text-xl font-medium">Bàn giao kết quả</h2>
+                <div className="breadcrumb text-sm">Quản lý Yêu cầu thí nghiệm / Bàn giao kết quả</div>
             </div>
 
             <div className="bg-white border-round p-4">
@@ -152,28 +116,34 @@ export const KhaoSatPhuongAn = () => {
                             <InputText value={selectedData.giaTriDuToanSauThue} className="w-full" readOnly />
                         </div>
 
-                        <h3 className="text-xl text-blue-600 font-medium">
-                            Thông tin khảo sát lập phương án thi công
-                        </h3>
+                        <h3 className="text-xl text-blue-600 font-medium">Thông Tin Bàn giao kết quả </h3>
                         <div className="border-bottom-1 border-gray-200 mx-1 my-2 text-center"></div>
+                        
 
-                        <div className="field">
-                            <label className="block text-700 mb-2">
-                                File Quyết Định <small className="text-red-600">*</small>
-                            </label>
-                            <InputText value={selectedData.fileQuyetDinh} className="w-full" readOnly />
-                        </div>
 
+                        <h4 className="text-xl font-medium">Bàn giao kết quả</h4>
                         <div className="field flex gap-4">
                             <div className="w-6">
-                                <label className="block text-700 mb-2">Người Khảo sát lập phương án thi công</label>
+                                <label className="block text-700 mb-2">Người Bàn giao kết quả</label>
                                 <InputText value={selectedData.nguoiKhaoSat} className="w-full" readOnly />
                             </div>
                             <div className="w-6">
                                 <label className="block text-700 mb-2">
-                                    Ngày Khảo sát lập phương án thi công <small className="text-red-600">*</small>
+                                    Ngày Bàn giao kết quả * <small className="text-red-600">*</small>
                                 </label>
                                 <InputText value={selectedData.ngayKhaoSat} className="w-full" readOnly />
+                            </div>
+                        </div>
+                        <div className="field flex gap-4">
+                            <div className="w-6">
+                                <label className="block text-700 mb-2">Ghi chú </label>
+                                <InputText value='' className="w-full" readOnly />
+                            </div>
+                            <div className="w-6">
+                                <label className="block text-700 mb-2">
+                                   Đơn vị bàn giao * <small className="text-red-600">*</small>
+                                </label>
+                                <InputText value='Cong ty dien luc Hung Yem' className="w-full" readOnly />
                             </div>
                         </div>
                     </>
@@ -182,3 +152,10 @@ export const KhaoSatPhuongAn = () => {
         </div>
     );
 };
+
+// Thông Tin Bàn giao kết quả
+// Bàn giao kết quả
+// Người Bàn giao kết quả
+// Ngày Bàn giao kết quả *
+// Ghi chú
+// Đơn vị bàn giao

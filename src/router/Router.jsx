@@ -19,6 +19,10 @@ import { ChiTietKySo } from '../pages/KySo/Chitietkyso';
 
 import { ChiTietThiNghiem } from '../pages/YeuCauThiNghiem/ChiTietThiNghiem';
 import { KhaoSatPhuongAn } from '../pages/ThucHienThiNghiem/KhaoSatPhuongAn';
+import { NhapKhoiLuong } from '../pages/YeuCauThiNghiem/NhapKhoiLuong';
+import { ThucHienThiNghiem } from '../pages/ThucHienThiNghiem/ThucHienThiNghiem';
+import { SoLuongChuKy } from '../pages/BaoCao/SoLuongChuKy';
+import { BanGiaoKetQua } from '../pages/ThucHienThiNghiem/BanGiaoKetQua';
 
 
 
@@ -53,12 +57,12 @@ const routes = [
         path: '/TruongDuLieu',
         element: <TruongDuLieu />,
     },
-    /////////////////////////////
     {
         path: '/ChiTietThiNghiem',
         element: <ChiTietThiNghiem />,
     },
-    ////////////////////////////
+    //----------- Quan ly yeu cau thi nghiem --------------//
+
     {
         path: '/YeuCauThiNghiem',
         element: <DanhSachYCTN />,
@@ -68,6 +72,12 @@ const routes = [
         element: <GiaoNhiemVu />,
     },
     {
+        path: '/nhap-khoi-luong',
+        element: <NhapKhoiLuong />,
+    },
+    //----------- Thuc hien thi nghiem --------------//
+
+    {
         path: "/khao-sat-phuong-an",
         element: <KhaoSatPhuongAn />,
     },
@@ -75,6 +85,21 @@ const routes = [
         path: "/khao-sat-phuong-an/:id",
         element: <KhaoSatPhuongAn />,
     },
+    {
+        path: "/thuc-hien-thi-nghiem",
+        element: <ThucHienThiNghiem />,
+    },
+    {
+        path: "/ban-giao-ket-qua",
+        element: <BanGiaoKetQua />,
+    },
+    //-----------  Bao cao   --------------//
+    {
+        path: "/so-luong-chu-ky",
+        element: <SoLuongChuKy />,
+    },
+
+    //----------Ky so --------------//
     {
         path: '/KySo',
         element: <DanhSachKySo />,
