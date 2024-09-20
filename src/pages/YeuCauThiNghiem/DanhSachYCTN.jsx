@@ -6,6 +6,7 @@ import { Dropdown } from 'primereact/dropdown';
 import { InputText } from 'primereact/inputtext';
 import 'primeicons/primeicons.css';
 import { Dialog } from 'primereact/dialog';
+import { Link } from 'react-router-dom';
 
 export const DanhSachYCTN = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -137,11 +138,9 @@ export const DanhSachYCTN = () => {
                                 showFilterMatchModes={false}
                                 style={{ maxWidth: '6rem', textAlign: 'center' }}
                                 body={
-                                    <Button
-                                        icon="pi pi-eye"
-                                        className="p-button-sm p-button-text"
-                                        onClick={() => alert(`Xem chi tiết`)}
-                                    />
+                                    <Link to="/ChiTietThiNghiem">
+                                        <Button icon="pi pi-eye" className="p-button-sm p-button-text" />
+                                    </Link>
                                 }
                             />
                         </DataTable>
@@ -149,7 +148,7 @@ export const DanhSachYCTN = () => {
                 </div>
             </div>
             <Dialog
-                header={(isAdd ? 'Thêm ' : 'Xem thông tin')}
+                header={isAdd ? 'Thêm ' : 'Xem thông tin'}
                 visible={visible}
                 className="w-5 h-1/4"
                 onHide={() => setVisible(false)}

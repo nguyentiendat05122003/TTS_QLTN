@@ -3,10 +3,11 @@ import { Menubar } from 'primereact/menubar';
 import { InputText } from 'primereact/inputtext';
 import { Badge } from 'primereact/badge';
 import { Avatar } from 'primereact/avatar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../../App.css';
 
 export default function Header() {
+    const navigate = useNavigate();
     const itemRenderer = (item) => (
         <Link className="flex align-items-center p-menuitem-link">
             <span className={item.icon} />
@@ -23,10 +24,39 @@ export default function Header() {
         {
             label: 'Home',
             icon: 'pi blue pi-home',
+            command: () => navigate('/'),
         },
         {
             label: 'Quản lý yêu cầu thí nghiệm',
             icon: 'pi blue pi-star',
+
+            items: [
+                {
+                    label: '1. Danh sách Yêu Cầu Thí Nghiệm',
+                    icon: 'pi blue pi-angle-right',
+                    command: () => navigate('/YeuCauThiNghiem'),
+                },
+                {
+                    label: '2. Giao Nhiệm Vụ',
+                    icon: 'pi blue pi-angle-right',
+                    command: () => navigate('/GiaoNhiemVu'),
+                },
+                {
+                    label: '3. Nhập Khối Lượng Thực Hiện',
+                    icon: 'pi blue pi-angle-right',
+                    command: () => navigate('/NhapKhoiLuong'),
+                },
+                {
+                    label: '5. Nhập khối lượng phát sinh',
+                    icon: 'pi blue pi-angle-right',
+                    command: () => navigate('/YeuCauThiNghiem'),
+                },
+                {
+                    label: '7. Chỉnh sửa giá trị hợp đồng',
+                    icon: 'pi blue pi-angle-right',
+                    command: () => navigate('/YeuCauThiNghiem'),
+                },
+            ],
         },
         {
             label: 'Thực hiện thí nghiệm',
@@ -35,7 +65,7 @@ export default function Header() {
                 {
                     label: '4. Khảo sát lập phương án thi công',
                     icon: 'pi blue pi-angle-right',
-                    template: itemRenderer,
+                    command: () => navigate('/khao-sat-phuong-an'),
                 },
                 {
                     label: '6. Thực hiện thí nghiệm',
@@ -50,32 +80,31 @@ export default function Header() {
                 {
                     separator: true,
                 },
-                {
-                    label: 'Ký số',
-                    icon: 'pi blue pi-palette',
-                    items: [
-                        {
-                            label: 'Apollo',
-                            icon: 'pi blue pi-angle-right',
-                            badge: 2,
-                            template: itemRenderer,
-                        },
-                        {
-                            label: 'Ultima',
-                            icon: 'pi blue pi-angle-right',
-                            badge: 3,
-                            template: itemRenderer,
-                        },
-                    ],
-                },
             ],
         },
 
         {
             label: 'Ký số',
             icon: 'pi blue pi-pen-to-square',
-            // badge: 3,
-            template: itemRenderer,
+            items: [
+                {
+                    label: 'Tất cả văn bản',
+                    icon: 'pi blue pi-angle-right',
+                    command: () => navigate('/KySo'),
+                },
+                {
+                    label: 'Văn bản chờ ký',
+                    icon: 'pi blue pi-angle-right',
+                },
+                {
+                    label: 'Văn bản đã ký',
+                    icon: 'pi blue pi-angle-right',
+                },
+                {
+                    label: 'Văn bản từ chối ký',
+                    icon: 'pi blue pi-angle-right',
+                },
+            ],
         },
         {
             label: 'Báo cáo',
@@ -84,7 +113,7 @@ export default function Header() {
                 {
                     label: 'Báo cáo số lượng chữ kí',
                     icon: 'pi blue pi-angle-right',
-                    template: itemRenderer,
+                    command: () => navigate('/ThanhVien'),
                 },
                 {
                     label: '6. Thực hiện thí nghiệm',
@@ -103,42 +132,43 @@ export default function Header() {
             icon: 'pi blue pi-cog  ',
             items: [
                 {
-                    label: 'Báo cáo số lượng chữ kí',
+                    label: 'Quản lý đơn vị',
                     icon: 'pi blue pi-angle-right',
-                    template: itemRenderer,
                 },
                 {
-                    label: '6. Thực hiện thí nghiệm',
+                    label: 'Quản lý thành viên',
                     icon: 'pi blue pi-angle-right',
-                    template: itemRenderer,
+                    command: () => navigate('/ThanhVien'),
                 },
                 {
-                    label: '8. Bàn giao kết quả',
+                    label: 'Quản lý Menu',
                     icon: 'pi blue pi-angle-right',
-                    template: itemRenderer,
+                    command: () => navigate('/ThanhVien'),
+                },
+                {
+                    label: 'Quản lý nhóm thành viên',
+                    icon: 'pi blue pi-angle-right',
+                    command: () => navigate('/NhomThanhVien'),
+                },
+                {
+                    label: 'Loại thiết bị',
+                    icon: 'pi blue pi-angle-right',
+                    command: () => navigate('/LoaiThietBi'),
+                },
+                {
+                    label: 'Quản Lý Khách Hàng/Đơn vị điện lực',
+                    icon: 'pi blue pi-angle-right',
+                },
+                {
+                    label: 'Ds Trường thông tin Yêu cầu sửa chữa',
+                    icon: 'pi blue pi-angle-right',
+                    command: () => navigate('/TruongDuLieu'),
                 },
             ],
         },
         {
             label: 'Hướng dẫn sử dụng',
             icon: 'pi blue pi-book',
-            items: [
-                {
-                    label: 'Báo cáo số lượng chữ kí',
-                    icon: 'pi blue pi-angle-right',
-                    template: itemRenderer,
-                },
-                {
-                    label: '6. Thực hiện thí nghiệm',
-                    icon: 'pi blue pi-angle-right',
-                    template: itemRenderer,
-                },
-                {
-                    label: '8. Bàn giao kết quả',
-                    icon: 'pi blue pi-angle-right',
-                    template: itemRenderer,
-                },
-            ],
         },
     ];
 
