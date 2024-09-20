@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { AutoComplete } from 'primereact/autocomplete';
 import { InputText } from 'primereact/inputtext';
-import { Button } from 'primereact/button';
 import { NextButton } from '../../components/nextstep/NextButton';
 
 // Mock data
@@ -54,7 +53,7 @@ export const GiaoNhiemVu = () => {
               Mã YCTN <small>(STT sẽ được hệ thống quy định)</small>
             </label>
             <AutoComplete
-              value={selectedData ? selectedData.name : ''}
+              value={selectedData ? selectedData.id : ''}
               suggestions={filteredData}
               completeMethod={handleSearch}
               field="name"

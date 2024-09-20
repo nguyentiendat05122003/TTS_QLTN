@@ -29,7 +29,6 @@ export default function Header() {
         {
             label: 'Quản lý yêu cầu thí nghiệm',
             icon: 'pi blue pi-star',
-
             items: [
                 {
                     label: '1. Danh sách Yêu Cầu Thí Nghiệm',
@@ -176,7 +175,7 @@ export default function Header() {
         <div className="flex align-items-center gap-3 pl-8">
             <img
                 alt="logo"
-                src="https://thinghiem.pchungyen.vn/Content/images/logo_npsc.png"
+                src="https://cv-project-public-bucket.s3.amazonaws.com/uploads/avatars/1726831929610-logoEVN.jpg"
                 height="75"
                 className="mr-2"
             ></img>
@@ -210,7 +209,7 @@ export default function Header() {
     return (
         <div className="card">
             <Menubar start={start} end={end} />
-            <Menubar model={items} className="pl-8" />
+            <Menubar model={items} className="pl-8 text-sm" />
         </div>
     );
 }
